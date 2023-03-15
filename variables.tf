@@ -41,3 +41,9 @@ variable "cloud_build_notifier_image" {
   type        = string
   default     = "us-east1-docker.pkg.dev/gcb-release/cloud-build-notifiers/slack:latest"
 }
+
+variable "labels" {
+  description = "Custom labels to apply on all resources created"
+  type        = map(string)
+  default     = {}
+}
