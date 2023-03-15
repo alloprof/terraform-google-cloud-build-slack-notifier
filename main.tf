@@ -45,7 +45,6 @@ data "google_secret_manager_secret_version" "slack_webhook_url" {
 resource "google_service_account" "notifier" {
   account_id = "${local.base_name}-nfy"
   project    = var.project_id
-  labels     = var.labels
 }
 
 # Give the service account required project permissions
@@ -74,7 +73,6 @@ resource "google_project_service_identity" "pubsub" {
   provider = google-beta
   project  = var.project_id
   service  = "pubsub.googleapis.com"
-  labels   = var.labels
 }
 
 # Grant the Pub/Sub SA permission to create auth tokens in your project
@@ -88,7 +86,6 @@ resource "google_project_iam_member" "pubsub_project_roles" {
 resource "google_service_account" "pubsub_invoker" {
   account_id = "${local.base_name}-pbs"
   project    = var.project_id
-  labels     = var.labels
 }
 
 # Give the pub/sub invoker service account the Cloud Run Invoker permission
