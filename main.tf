@@ -161,7 +161,6 @@ resource "google_cloud_run_service" "cloud_build_notifier" {
   name     = "${local.base_name}-${random_id.cloud_build_notifier_service.hex}"
   location = var.region
   project  = var.project_id
-  labels   = var.labels
 
   template {
     spec {
