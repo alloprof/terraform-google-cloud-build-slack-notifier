@@ -205,7 +205,7 @@ resource "google_cloud_run_service" "cloud_build_notifier" {
 # Create the cloud-builds topic to receive build update messages for your notifier
 resource "google_pubsub_topic" "cloud_builds" {
   project = var.project_id
-  name    = "cloud-builds-slack-notifier"
+  name    = "cloud-builds"
   labels  = var.labels
 }
 
